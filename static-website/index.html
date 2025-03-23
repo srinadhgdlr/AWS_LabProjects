@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My First Static Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #eef;
+        }
+
+        h1 {
+            font-size: 24px;
+            color: #333;
+            text-align: center;
+        }
+
+        #greeting,
+        .buttons,
+        #data {
+            text-align: center;
+            margin: auto;
+            padding: 10px;
+        }
+
+        .buttons {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .buttons button {
+            background: linear-gradient(135deg, #007bff, #0056b3);
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .buttons button:hover {
+            background: linear-gradient(135deg, #0056b3, #007bff);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        #greeting {
+            font-weight: bold;
+            font-size: 26px;
+            color: blue;
+            display: none;
+            margin: 10px auto;
+            background: aliceblue;
+            border: 1px solid cornflowerblue;
+            max-width: 530px;
+            border-radius: 5px;
+        }
+
+        #data span {
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+        }
+
+        img {
+            display: block;
+            margin: 0 auto;
+            max-width: 80%;
+            height: auto;
+        }
+
+        #displayMessage {
+            display: block;
+        }
+
+        #hideMessage {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>My First Static Website</h1>
+    <div class="buttons">
+        <button id="displayMessage" onclick="displayGreeting()">Display Greeting</button>
+        <button id="hideMessage" onclick="hideGreeting()">Hide Greeting</button>
+        <button id="displayImage" onclick="fetchData()">Show Random Image</button>
+    </div>
+    <script>
+        function displayGreeting() {
+            document.getElementById("greeting").innerHTML = "Hello, welcome to my website!";
+            document.getElementById("greeting").style.display = "block";
+            document.getElementById("displayMessage").style.display = "none";
+            document.getElementById("hideMessage").style.display = "block";
+        }
+
+        function hideGreeting() {
+            document.getElementById("greeting").style.display = "none";
+            document.getElementById("displayMessage").style.display = "block";
+            document.getElementById("hideMessage").style.display = "none";
+        }
+
+        function fetchData() {
+            var imageUrl = "https://picsum.photos/500/300?random=" + new Date().getTime();
+            document.getElementById("data").innerHTML = "<img src='" + imageUrl + "' alt='Random Image'><span>Random Image from Picsum</span>";
+        }
+
+    </script>
+
+    <div id="greeting"></div>
+    <div id="data"></div>
+</body>
+
+</html>
